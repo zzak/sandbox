@@ -1,0 +1,3 @@
+[submodule "scripts/do-exclusively"]
+	path = scripts/do-exclusively
+	url = https://github.com/bellkev/circle-lock-test
