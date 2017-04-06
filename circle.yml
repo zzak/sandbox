@@ -6,6 +6,8 @@ dependencies:
       curl -L -o ~/bin/jq \
       https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64 && \
       chmod +x ~/bin/jq
+  post:
+    - git submodule update
 
 test:
   override:
