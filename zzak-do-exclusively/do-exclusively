@@ -77,6 +77,7 @@ set -o pipefail
         builds=$(curl -s -H "Accept: application/json" "$api_url" | jq "$jq_prog")
         if should_cancel; then
             echo "Cancelling build."
+            exit 0
         else if [[ $builds ]]; then
             echo "Waiting on builds:"
             echo "$builds"
@@ -85,7 +86,6 @@ set -o pipefail
         fi
         echo "Retrying in 5 seconds..."
         sleep 5
-    done
 
     echo "Acquired lock"
 
