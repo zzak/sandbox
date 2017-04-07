@@ -10,7 +10,7 @@ parse_args() {
             -c|--cancel) cancel="true" ;;
             *) break ;;
         esac
-        shift 3
+        shift 2
     done
     rest=("$@")
 }
