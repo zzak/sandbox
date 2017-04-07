@@ -12,4 +12,4 @@ dependencies:
 test:
   override:
     - echo "zomg"
-    - ./scripts/do-exclusively/do-exclusively --branch concurrent-lock sleep 120
+    - ./zzak-do-exclusively/do-exclusively --branch concurrent-lock --cancel sleep 120
