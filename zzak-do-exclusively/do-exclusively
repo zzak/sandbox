@@ -89,7 +89,7 @@ set -o pipefail
         if [[ $builds ]]; then
             if should_cancel; then
                 echo "Cancelling build."
-                exit 0
+                exit 1
             fi
 
             echo "Waiting on builds:"
