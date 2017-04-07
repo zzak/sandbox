@@ -75,10 +75,12 @@ set -o pipefail
 
     while true; do
         builds=$(curl -s -H "Accept: application/json" "$api_url" | jq "$jq_prog")
-        if should_cancel; then
-            echo "Cancelling build."
-            exit 0
-        elif [[ $builds ]]; then
+        if [[ $builds ]]; then
+            if should_cancel; then
+                echo "Cancelling build."
+                exit 0
+            fi
+
             echo "Waiting on builds:"
             echo "$builds"
         else
