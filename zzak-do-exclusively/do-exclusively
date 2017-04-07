@@ -9,6 +9,7 @@ parse_args() {
             -t|--tag) tag="$2" ;;
             *) break ;;
         esac
+        shift 2
     done
     rest=("$@")
 }
@@ -30,7 +31,7 @@ should_skip() {
 
 # reads $cancel
 should_cancel() {
-    if [[ "$cancel" ]]; then
+    if [[ "$rest" == "--cancel" ]]; then
       return 0
     fi
 
