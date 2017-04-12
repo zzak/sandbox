@@ -1,0 +1,4 @@
+dependencies:
+  pre:
+    - ls
+    - cd $CIRCLE_PROJECT_NAME
