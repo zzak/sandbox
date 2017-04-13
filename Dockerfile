@@ -1,0 +1,1 @@
+FROM "circleci/ruby:latest"
