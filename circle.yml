@@ -3,6 +3,8 @@ machine:
     PROJECT_NAME: zzak-gce
     CLUSTER_NAME: cluster-1
     CLOUDSDK_COMPUTE_ZONE: asia-east1-a
+  services:
+    - docker
 
 dependencies:
   pre:
@@ -14,7 +16,8 @@ dependencies:
     - sudo /opt/google-cloud-sdk/bin/gcloud --quiet config set container/cluster $CLUSTER_NAME
     - sudo /opt/google-cloud-sdk/bin/gcloud config set compute/zone ${CLOUDSDK_COMPUTE_ZONE}
     - sudo /opt/google-cloud-sdk/bin/gcloud --quiet container clusters get-credentials $CLUSTER_NAME
-    - ./build.sh
+    - docker build -t asia.gcr.io/$PROJECT_NAME/hello:$CIRCLE_SHA1 .
+    - docker tag asia.gcr.io/$PROJECT_NAME/hello:$CIRCLE_SHA1 asia.gcr.io/$PROJECT_NAME/hello:latest
 
 deployment:
   prod:
