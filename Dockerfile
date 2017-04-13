@@ -1,1 +1,1 @@
-FROM "circleci/ruby:latest"
+FROM circleci/ruby:latest
