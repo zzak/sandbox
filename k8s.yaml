@@ -1,5 +1,7 @@
 metadata:
   name: hello-deployment
+  namespace: cluster-1
+kind: Deployment
 spec:
   replicas: 3
   template:
