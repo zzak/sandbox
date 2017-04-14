@@ -1,0 +1,7 @@
+checkout:
+  pre:
+    - echo "this is pre checkout"
+  override:
+    - echo "this is checkout override"
+  post:
+    - echo "this is checkout post"
