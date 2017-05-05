@@ -1,7 +1,7 @@
 dependencies:
   pre:
-    - sudo apt-get install stress-ng
+    - sudo apt-get install stress
 
 test:
   override:
-    - stress-ng --cpu 4 --io 2 --vm 1 --vm-bytes 1G --timeout 60s --metrics-brief
+    - stress-ng --cpu 4 --io 2 --vm 1 --vm-bytes 1G --timeout 60s
