@@ -4,4 +4,4 @@
 
 test:
   override:
-    - mongo --eval "db.serverStatus().storageEngine"
+    - mongo --eval "printjson(db.serverStatus().storageEngine)"
