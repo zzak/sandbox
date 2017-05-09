@@ -1,0 +1,7 @@
+machine:
+  services:
+    - mongo
+
+test:
+  override:
+    - mongo --eval "db.serverStatus().storageEngine"
