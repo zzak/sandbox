@@ -1,6 +1,6 @@
-machine:
-  services:
-    - mongo
+#machine:
+#  services:
+#    - mongo
 
 test:
   override:
