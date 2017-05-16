@@ -5,14 +5,14 @@ jobs:
     docker:
       - image: busybox
     environment:
-       BASH_ENV: ~/.bashrc
+       - BASH_ENV: ~/.bashrc
     steps:
-      run: echo "export PATH=zomg/:$PATH" > ~/.bashrc
+      - run: echo "export PATH=zomg/:$PATH" > ~/.bashrc
 
-      run: mkdir zomg
-      run: "echo 'echo \"Hello, world!\" > zomg/hello"
-      run: "chmod +x zomg/hello"
-      run:
+      - run: mkdir zomg
+      - run: "echo 'echo \"Hello, world!\" > zomg/hello"
+      - run: "chmod +x zomg/hello"
+      - run:
         command: |
           hello
 
