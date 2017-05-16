@@ -13,6 +13,6 @@ jobs:
       - run: "echo 'echo \"Hello, world!\" > zomg/hello"
       - run: "chmod +x zomg/hello"
       - run:
-        command: |
-          hello
+          command: |
+            hello
 
