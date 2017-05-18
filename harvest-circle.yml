@@ -1,0 +1,75 @@
+machine:
+  hosts:
+    iridesco.harvestapp.dev:     127.0.0.1
+    platform.harvestapp.dev:     127.0.0.1
+    api.harvestapp.dev:          127.0.0.1
+    test3.harvestapp.dev:        127.0.0.1
+    test.harvestapp.dev:         127.0.0.1
+    primalgrasp.harvestapp.dev:  127.0.0.1
+    nobodyhome.harvestapp.dev:   127.0.0.1
+    freebieco.harvestapp.dev:    127.0.0.1
+    ffff.harvestapp.dev:         127.0.0.1
+    acme.harvestapp.dev:         127.0.0.1
+    chromeapp.harvestapp.dev:    127.0.0.1
+    prsimp.harvestapp.dev:       127.0.0.1
+    massivedanger.harvestapp.dev:       127.0.0.1
+    connectedtoforecast.harvestapp.dev: 127.0.0.1
+    pricingversion1.harvestapp.dev:     127.0.0.1
+    harvest-admin.harvest-systems.dev:  127.0.0.1
+
+  environment:
+    RUBY_GC_HEAP_INIT_SLOTS: 800000
+    RUBY_GC_HEAP_FREE_SLOTS: 100000
+    RUBY_GC_MALLOC_LIMIT: 79000000
+    USE_MEMCACHE: true
+    BUGSNAG_API_KEY_MINITEST: 1fe160a706ef18774c15761f04b7bc16
+    RUBYOPT: W0
+    DEBIAN_FRONTEND: noninteractive
+    DB_USERNAME: ubuntu
+
+  node:
+    version: 6.9.2
+
+  services:
+    - redis
+    - docker
+
+  ruby:
+    version: 2.3.1
+
+dependencies:
+  cache_directories:
+    - "pkg"
+    - "tmp/cache"
+
+  pre:
+    - bin/circle_install_dependencies.sh
+
+    - sudo service memcached stop
+    - sudo apt-get remove memcached
+    - sudo apt-get remove --auto-remove memcached
+    - docker pull memcached
+    - docker run -d -p 11211:11211 memcached; sleep 10
+
+  post:
+    - for f in $(ls -1 config/*.yml.example); do cp $f config/$(basename $f .example); done
+    - bundle exec rake assets:precompile
+    - bundle exec rake test:javascript:precompile
+
+database:
+  override:
+    # Sets up the database and all that
+    - bundle exec rake ci:setup --trace
+
+test:
+  override:
+    - bundle exec rake test:
+        parallel: true
+        files:
+          - test/**/*_test.rb
+
+  post:
+    - bundle exec rake ci:post --trace:
+        parallel: true
+        environment:
+          RAILS_ENV: test

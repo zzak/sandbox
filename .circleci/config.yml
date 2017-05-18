@@ -12,6 +12,7 @@ jobs:
       - run: mkdir zomg
       - run: echo 'echo "Hello, world!"' > zomg/hello
       - run: "chmod +x zomg/hello"
+      - run: echo $PATH
       - run:
           command: |
             hello
