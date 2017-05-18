@@ -12,6 +12,9 @@ jobs:
       - run: mkdir zomg
       - run: echo 'echo "Hello, world!"' > zomg/hello
       - run: "chmod +x zomg/hello"
+      - run: cat ~/.bashrc
+      - run: echo $PATH
+      - run: ls -aslh /tmp/zomg
       - run:
           command: |
             hello
