@@ -16,6 +16,7 @@ jobs:
       - run: echo $PATH
       - run: ls -aslh /tmp/zomg
       - run:
+          shell: /bin/bash -eo
           command: |
             hello
 
