@@ -10,9 +10,10 @@ jobs:
       - run: echo "export PATH=zomg/:$PATH" > ~/.bashrc
 
       - run: mkdir zomg
-      - run: echo 'echo \"Hello, world!\" > zomg/hello'
+      - run: echo 'echo "Hello, world!" > zomg/hello'
       - run: ls -aslh .
       - run: ls -aslh zomg
+      - run: cat zomg/hello
       - run: "chmod +x zomg/hello"
       - run:
           command: |
