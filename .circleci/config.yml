@@ -8,6 +8,7 @@ jobs:
        - BASH_ENV: ~/.bashrc
     steps:
       - run: echo "export PATH=zomg/:$PATH" > ~/.bashrc
+      - run: cat ~/.bashrc
 
       - run: mkdir zomg
       - run: echo 'echo "Hello, world!"' > zomg/hello
