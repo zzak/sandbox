@@ -11,6 +11,8 @@ jobs:
 
       - run: mkdir zomg
       - run: echo 'echo \"Hello, world!\" > zomg/hello'
+      - run: ls -aslh .
+      - run: ls -aslh zomg
       - run: "chmod +x zomg/hello"
       - run:
           command: |
