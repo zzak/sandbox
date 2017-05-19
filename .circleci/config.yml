@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: /tmp
     docker:
-      - image: busybox
+      - image: buildpack-deps:jessie
     environment:
        - BASH_ENV: ~/.bashrc
     steps:
