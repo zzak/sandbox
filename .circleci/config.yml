@@ -10,3 +10,10 @@ jobs:
       - store_artifacts:
         path: /tmp/artifacts/echo-output
         destination: echo-output
+
+workflows:
+  version: 2
+
+  btd:
+    jobs:
+      -flow
