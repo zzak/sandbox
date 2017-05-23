@@ -1,0 +1,12 @@
+version: 2
+jobs:
+  flow:
+    working_directory: /tmp
+    docker:
+      - image: buildpack-deps:jessie
+    steps:
+      - run: mkdir -p artifacts
+      - run: echo "Hello, world!" > artifacts/echo-output
+      - store_artifacts:
+        path: /tmp/artifacts/echo-output
+        destination: echo-output
