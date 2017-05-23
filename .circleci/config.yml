@@ -16,4 +16,4 @@ workflows:
 
   btd:
     jobs:
-      - flow
+      -flow
