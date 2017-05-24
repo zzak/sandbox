@@ -18,9 +18,9 @@ jobs:
     docker:
       - image: buildpack-deps:jessie
     steps:
-      - run: mkdir -p workspace
+      - run: mkdir -p /tmp/workspace
       - attach_workspace:
-          at: workspace
+          at: /tmp/workspace
 
       - run: |
           if [ cat workspace/echo-output == "Hello, world!" ]
