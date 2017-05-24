@@ -22,8 +22,10 @@ jobs:
           at: /tmp/workspace
 
       - run: |
-          if [ cat workspace/echo-output == "Hello, world!" ]
+          if [[ `cat workspace/echo-output` == "Hello, world!" ]]; then
             echo "It worked!";
+          else
+            echo "Nope!"; exit 1
           fi
 
 workflows:
