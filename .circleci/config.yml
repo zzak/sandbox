@@ -18,7 +18,7 @@ jobs:
     docker:
       - image: buildpack-deps:jessie
     steps:
-      - mkdir -p workspace
+      - run: mkdir -p workspace
       - attach_workspace:
           at: workspace
 
