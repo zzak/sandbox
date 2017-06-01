@@ -1,9 +1,12 @@
+defaults: &defaults
+  working_directory: /tmp
+  docker:
+    - image: buildpack-deps:jessie
+
 version: 2
 jobs:
   flow:
-    working_directory: /tmp
-    docker:
-      - image: buildpack-deps:jessie
+    <<: *defaults
     steps:
       - run: mkdir -p workspace
       - run: echo "Hello, world!" > workspace/echo-output
@@ -14,9 +17,7 @@ jobs:
             - echo-output
 
   downstream:
-    working_directory: /tmp
-    docker:
-      - image: buildpack-deps:jessie
+    <<: *defaults
     steps:
       - attach_workspace:
           at: /tmp/workspace
