@@ -1,40 +1,69 @@
 defaults: &defaults
-  working_directory: /tmp
+  working_directory: ~/app
   docker:
-    - image: buildpack-deps:jessie
+    - image: circleci/node:8.1.4-browsers
+
+npm: &npm
+  - run:
+      name: set-user-permissions
+      command: sudo chown -R $(whoami) $(npm config get prefix)/{lib/node_modules,bin,share}
+  - restore_cache:
+      key: dependency-cache-{{ checksum "package.json" }}
+  - run:
+      name: update-npm
+      command: yarn global add npm@^5.2
+  - run:
+      name: install-npm-dependencies
+      command: npm install --silent
+  - save_cache:
+      key: dependency-cache-{{ checksum "package.json" }}
+      paths:
+        - ./node_modules
+
 
 version: 2
 jobs:
-  flow:
+  build:
     <<: *defaults
     steps:
-      - run: mkdir -p workspace
-      - run: echo "Hello, world!" > workspace/echo-output
-
-      - persist_to_workspace:
-          root: workspace
-          paths:
-            - echo-output
-
-  downstream:
+      - checkout
+      - *npm
+      - run:
+          name: gulp-build
+          command: npx gulp build
+  test:
     <<: *defaults
     steps:
-      - attach_workspace:
-          at: /tmp/workspace
-
-      - run: |
-          if [[ `cat workspace/echo-output` == "Hello, world!" ]]; then
-            echo "It worked!";
-          else
-            echo "Nope!"; exit 1
-          fi
+      - checkout
+      - *npm
+      - run:
+          name: test
+          command: npm test
+  deploy:
+    <<: *defaults
+    steps:
+      - checkout
+      - *npm
+      - run:
+          name: deploy
+          command: |
+            DEPLOY_ENV=$(echo $CIRCLE_BRANCH | sed -e "s/^integration\///")
+            npx gulp deploy --env=$DEPLOY_ENV
 
 workflows:
   version: 2
-
-  btd:
+  build_test_or_deploy:
     jobs:
-      - flow
-      - downstream:
+      - build
+      - test:
           requires:
-            - flow
+            - build
+          filters:
+            branches:
+              ignore: /integration\/.*/
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: /integration\/.*/
