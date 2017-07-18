@@ -1,25 +1,29 @@
-defaults: &defaults
-  working_directory: ~/app
-  docker:
-    - image: circleci/node:8.1.4-browsers
+references:
 
-npm: &npm
-  - run:
+  defaults: &defaults
+    working_directory: ~/app
+    docker:
+      - image: circleci/node:8.1.4-browsers
+
+  npm_permissions: &npm_permissions
+    run:
       name: set-user-permissions
       command: sudo chown -R $(whoami) $(npm config get prefix)/{lib/node_modules,bin,share}
-  - restore_cache:
-      key: dependency-cache-{{ checksum "package.json" }}
-  - run:
+  npm_restore_cache: &npm_restore_cache
+    key: dependency-cache-{{ checksum "package.json" }}
+  npm_update: &npm_update
+    run:
       name: update-npm
       command: yarn global add npm@^5.2
-  - run:
+  npm_install: &npm_install
+    run:
       name: install-npm-dependencies
       command: npm install --silent
-  - save_cache:
-      key: dependency-cache-{{ checksum "package.json" }}
-      paths:
-        - ./node_modules
-
+  npm_save_cache: &npm_save_cache
+    save_cache:
+        key: dependency-cache-{{ checksum "package.json" }}
+        paths:
+          - ./node_modules
 
 version: 2
 jobs:
@@ -27,7 +31,11 @@ jobs:
     <<: *defaults
     steps:
       - checkout
-      - *npm
+      << : *npm_permissions
+      << : *npm_restore_cache
+      << : *npm_update
+      << : *npm_install
+      << : *npm_save_cache
       - run:
           name: gulp-build
           command: npx gulp build
@@ -35,7 +43,11 @@ jobs:
     <<: *defaults
     steps:
       - checkout
-      - *npm
+      << : *npm_permissions
+      << : *npm_restore_cache
+      << : *npm_update
+      << : *npm_install
+      << : *npm_save_cache
       - run:
           name: test
           command: npm test
@@ -43,7 +55,11 @@ jobs:
     <<: *defaults
     steps:
       - checkout
-      - *npm
+      << : *npm_permissions
+      << : *npm_restore_cache
+      << : *npm_update
+      << : *npm_install
+      << : *npm_save_cache
       - run:
           name: deploy
           command: |
