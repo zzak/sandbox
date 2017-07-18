@@ -31,11 +31,11 @@ jobs:
     <<: *defaults
     steps:
       - checkout
-      << : *npm_permissions
-      << : *npm_restore_cache
-      << : *npm_update
-      << : *npm_install
-      << : *npm_save_cache
+      - << : *npm_permissions
+      - << : *npm_restore_cache
+      - << : *npm_update
+      - << : *npm_install
+      - << : *npm_save_cache
       - run:
           name: gulp-build
           command: npx gulp build
@@ -43,11 +43,11 @@ jobs:
     <<: *defaults
     steps:
       - checkout
-      << : *npm_permissions
-      << : *npm_restore_cache
-      << : *npm_update
-      << : *npm_install
-      << : *npm_save_cache
+      - << : *npm_permissions
+      - << : *npm_restore_cache
+      - << : *npm_update
+      - << : *npm_install
+      - << : *npm_save_cache
       - run:
           name: test
           command: npm test
@@ -55,11 +55,11 @@ jobs:
     <<: *defaults
     steps:
       - checkout
-      << : *npm_permissions
-      << : *npm_restore_cache
-      << : *npm_update
-      << : *npm_install
-      << : *npm_save_cache
+      - << : *npm_permissions
+      - << : *npm_restore_cache
+      - << : *npm_update
+      - << : *npm_install
+      - << : *npm_save_cache
       - run:
           name: deploy
           command: |
