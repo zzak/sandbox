@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: /opt/project/
     docker:
-      - docker:stable-git
+      - image: docker:stable-git
     branches:
       only:
         - struct
