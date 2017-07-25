@@ -1,0 +1,15 @@
+version: 2
+jobs:
+  build:
+    working_directory: /opt/project/
+    docker:
+      - docker:stable-git
+    branches:
+      only:
+        - master
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run: docker build -t org/project:latest .
+      - run: docker tag org/project:latest org/project:`git describe`
+      - run: docker push org/project:*
