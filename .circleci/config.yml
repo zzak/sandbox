@@ -6,7 +6,7 @@ jobs:
       - docker:stable-git
     branches:
       only:
-        - master
+        - struct
     steps:
       - checkout
       - setup_remote_docker
