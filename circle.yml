@@ -2,7 +2,7 @@ machine:
   services:
     - docker
 
-tests:
+test:
   override:
     - docker -v
     - docker-compose -v
