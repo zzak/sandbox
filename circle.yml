@@ -1,28 +1,28 @@
 machine:
   post:
     - mkdir -p $CIRCLE_ARTIFACTS/container-$CIRCLE_NODE_INDEX
-    - echo "Machine step: Container is $CIRCLE_NODE_INDEX of $CIRCLE_NODE_TOTAL containers" >> $CIRCLE_ARTIFACTS/container-$CIRCLE_NODE_INDEX/steps.log
+    - echo "[Machine] Container is $CIRCLE_NODE_INDEX of $CIRCLE_NODE_TOTAL containers" >> $CIRCLE_ARTIFACTS/container-$CIRCLE_NODE_INDEX/steps.log
 
 checkout:
   post:
-    - echo "Checkout step: Container is $CIRCLE_NODE_INDEX of $CIRCLE_NODE_TOTAL containers" >> $CIRCLE_ARTIFACTS/container-$CIRCLE_NODE_INDEX/steps.log
+    - echo "[Checkout] Container is $CIRCLE_NODE_INDEX of $CIRCLE_NODE_TOTAL containers" >> $CIRCLE_ARTIFACTS/container-$CIRCLE_NODE_INDEX/steps.log
 
 dependencies:
   post:
-    - echo "Dependencies step: Container is $CIRCLE_NODE_INDEX of $CIRCLE_NODE_TOTAL containers" >> $CIRCLE_ARTIFACTS/container-$CIRCLE_NODE_INDEX/steps.log
+    - echo "[Dependencies] Container is $CIRCLE_NODE_INDEX of $CIRCLE_NODE_TOTAL containers" >> $CIRCLE_ARTIFACTS/container-$CIRCLE_NODE_INDEX/steps.log
 
 database:
   post:
-    - echo "Database step: Container is $CIRCLE_NODE_INDEX of $CIRCLE_NODE_TOTAL containers" >> $CIRCLE_ARTIFACTS/container-$CIRCLE_NODE_INDEX/steps.log
+    - echo "[Database] Container is $CIRCLE_NODE_INDEX of $CIRCLE_NODE_TOTAL containers" >> $CIRCLE_ARTIFACTS/container-$CIRCLE_NODE_INDEX/steps.log
 
 compile:
   post:
-    - echo "Compile step: Container is $CIRCLE_NODE_INDEX of $CIRCLE_NODE_TOTAL containers" >> $CIRCLE_ARTIFACTS/container-$CIRCLE_NODE_INDEX/steps.log
+    - echo "[Compile] Container is $CIRCLE_NODE_INDEX of $CIRCLE_NODE_TOTAL containers" >> $CIRCLE_ARTIFACTS/container-$CIRCLE_NODE_INDEX/steps.log
 
 test:
   override:
-    - echo "Tests step: Container is $CIRCLE_NODE_INDEX of $CIRCLE_NODE_TOTAL containers" >> $CIRCLE_ARTIFACTS/container-$CIRCLE_NODE_INDEX/steps.log
+    - echo "[Tests] Container is $CIRCLE_NODE_INDEX of $CIRCLE_NODE_TOTAL containers" >> $CIRCLE_ARTIFACTS/container-$CIRCLE_NODE_INDEX/steps.log
 
 deployment:
   override:
-    - echo "Deploy step: Container is $CIRCLE_NODE_INDEX of $CIRCLE_NODE_TOTAL containers" >> $CIRCLE_ARTIFACTS/container-$CIRCLE_NODE_INDEX/steps.log
+    - echo "[Deploy] Container is $CIRCLE_NODE_INDEX of $CIRCLE_NODE_TOTAL containers" >> $CIRCLE_ARTIFACTS/container-$CIRCLE_NODE_INDEX/steps.log
