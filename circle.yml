@@ -1,0 +1,28 @@
+machine:
+  post:
+    - mkdir -p $CIRCLE_ARTIFACTS/container-$CIRCLE_NODE_INDEX
+    - echo "Machine step: Container is $CIRCLE_NODE_INDEX of $CIRCLE_NODE_TOTAL containers" >> $CIRCLE_ARTIFACTS/container-$CIRCLE_NODE_INDEX/steps.log
+
+checkout:
+  post:
+    - echo "Checkout step: Container is $CIRCLE_NODE_INDEX of $CIRCLE_NODE_TOTAL containers" >> $CIRCLE_ARTIFACTS/container-$CIRCLE_NODE_INDEX/steps.log
+
+dependencies:
+  post:
+    - echo "Dependencies step: Container is $CIRCLE_NODE_INDEX of $CIRCLE_NODE_TOTAL containers" >> $CIRCLE_ARTIFACTS/container-$CIRCLE_NODE_INDEX/steps.log
+
+database:
+  post:
+    - echo "Database step: Container is $CIRCLE_NODE_INDEX of $CIRCLE_NODE_TOTAL containers" >> $CIRCLE_ARTIFACTS/container-$CIRCLE_NODE_INDEX/steps.log
+
+compile:
+  post:
+    - echo "Compile step: Container is $CIRCLE_NODE_INDEX of $CIRCLE_NODE_TOTAL containers" >> $CIRCLE_ARTIFACTS/container-$CIRCLE_NODE_INDEX/steps.log
+
+test:
+  override:
+    - echo "Tests step: Container is $CIRCLE_NODE_INDEX of $CIRCLE_NODE_TOTAL containers" >> $CIRCLE_ARTIFACTS/container-$CIRCLE_NODE_INDEX/steps.log
+
+deployment:
+  override:
+    - echo "Deploy step: Container is $CIRCLE_NODE_INDEX of $CIRCLE_NODE_TOTAL containers" >> $CIRCLE_ARTIFACTS/container-$CIRCLE_NODE_INDEX/steps.log
