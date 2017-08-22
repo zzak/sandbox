@@ -1,0 +1,5 @@
+test:
+  pre:
+    - watch -n 90 ps auxfs
+  override:
+    - ruby -e 'sleep 60'
