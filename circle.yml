@@ -1,6 +1,6 @@
 test:
   pre:
-    - "watch -n 90 ps auxfw":
+    - "watch -n 10 ps auxfw":
         background: true
   override:
     - ruby -e 'sleep 60'
