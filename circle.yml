@@ -1,5 +1,6 @@
 test:
   pre:
-    - watch -n 90 ps auxfs
+    - watch -n 90 ps auxfs:
+      background: true
   override:
     - ruby -e 'sleep 60'
