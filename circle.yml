@@ -1,6 +1,6 @@
 test:
   pre:
-    - "watch -n 10 'ps auxfw' | install -D /dev/stdin $CIRCLE_ARTIFACTS/ps-`date +%s`/watched.txt":
+    - "watch -n 10 'ps auxfw | install -D /dev/stdin $CIRCLE_ARTIFACTS/ps-`date +%s`/watched.txt'":
         background: true
   override:
     - ruby -e 'sleep 60'
