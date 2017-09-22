@@ -1,0 +1,7 @@
+jobs:
+  build:
+    docker:
+      - image: docker:17.09.0-ce
+    steps:
+      - run: docker -v
+      - run: docker-compose -v
