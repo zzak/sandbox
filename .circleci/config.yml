@@ -1,7 +1,7 @@
 jobs:
   build:
-    docker:
-      - image: docker/compose:1.16.1
+    machine:
+      enabled: true
     steps:
       - run: docker -v
       - run: docker-compose -v
