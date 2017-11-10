@@ -6,7 +6,9 @@ jobs:
 
     steps:
       - checkout
-      - run: chruby
+      - run:
+          name: Output installed rubies
+          command: chruby
 
 workflows:
   version: 2
