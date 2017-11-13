@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  build-and-test:
+  build:
     macos:
       xcode: "9.1.0"
 
@@ -15,9 +15,3 @@ jobs:
           name: Filename limit prodding
           command: |
             ruby -e'f="";255.times{|i|f<<i};system("touch #{f}")'
-
-workflows:
-  version: 2
-  build-and-test:
-    jobs:
-      - build-and-test
