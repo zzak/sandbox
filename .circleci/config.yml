@@ -11,6 +11,11 @@ jobs:
           name: Output installed rubies
           command: chruby
 
+      - run:
+          name: Filename limit prodding
+          command: |
+            ruby -e'f="";255.times{|i|f<<i};system("touch #{f}")'
+
 workflows:
   version: 2
   build-and-test:
