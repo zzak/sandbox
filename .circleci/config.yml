@@ -18,7 +18,7 @@ jobs:
       - run:
           name: Filename limit prodding
           command: |
-            ruby -e'f="";118.times{|i|f<<"#{i}"};system("touch /tmp/#{f}")'
+            ruby -e'f="";125.times{|i|f<<"#{i}"};system("touch /tmp/#{f}")'
 
 workflows:
   version: 2
