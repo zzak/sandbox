@@ -14,4 +14,4 @@ jobs:
       - run:
           name: Filename limit prodding
           command: |
-            ruby -e'f="";255.times{|i|f<<i};system("touch #{f}")'
+            ruby -e'f="";255.times{|i|f<<"#{i}"};system("touch #{f}")'
