@@ -12,9 +12,13 @@ jobs:
           command: chruby
 
       - run:
+          name: Report NAME_MAX var
+          command: grep NAME_MAX /usr/include/sys/syslimits.h
+
+      - run:
           name: Filename limit prodding
           command: |
-            ruby -e'f="";124.times{|i|f<<"#{i}"};system("touch #{f}")'
+            ruby -e'f="";117.times{|i|f<<"#{i}"};system("touch /tmp/#{f}")'
 
 workflows:
   version: 2
