@@ -1,0 +1,32 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/ruby:2.4
+
+    steps:
+      - run:
+          name: Ruby version
+          command: ruby -v
+
+      - run:
+          name: RubyGems version
+          command: gem -v
+
+      - run:
+          name: Gem env
+          command: gem env
+
+      - run:
+          name: Bundler version
+          command: bundle -v
+
+      - run:
+          name: Bundler env
+          command: bundle env
+
+workflows:
+  version: 2
+  build-and-test:
+    jobs:
+      - build
