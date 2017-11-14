@@ -12,8 +12,8 @@ jobs:
             bundle env
 
       - run:
-          name: gem install bundler
-          command: gem install bundler
+          name: sudo gem install bundler
+          command: sudo gem install bundler
 
 workflows:
   version: 2
