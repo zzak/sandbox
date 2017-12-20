@@ -2,16 +2,17 @@ version: 2
 jobs:
   docker:
     - image: circleci/ruby:2.4
-  steps:
-    - checkout
-    - run:
-      name: Create artifact directory
-      command: mkdir artifacts
-    - run:
-      name: Generate some artifact
-      command: echo "Hello, world!" > artifact.txt
-    - store_artifacts:
-      path: artifacts/
+  build:
+    steps:
+      - checkout
+      - run:
+        name: Create artifact directory
+        command: mkdir artifacts
+      - run:
+        name: Generate some artifact
+        command: echo "Hello, world!" > artifact.txt
+      - store_artifacts:
+        path: artifacts/
 
 workflows:
   version: 2
