@@ -6,13 +6,13 @@ jobs:
     steps:
       - checkout
       - run:
-        name: Create artifact directory
-        command: mkdir artifacts
+          name: Create artifact directory
+          command: mkdir artifacts
       - run:
-        name: Generate some artifact
-        command: echo "Hello, world!" > artifact.txt
+          name: Generate some artifact
+          command: echo "Hello, world!" > artifact.txt
       - store_artifacts:
-        path: artifacts/
+          path: artifacts/
 
 workflows:
   version: 2
