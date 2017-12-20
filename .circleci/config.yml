@@ -10,13 +10,12 @@ jobs:
           command: mkdir artifacts
       - run:
           name: Generate some artifact
-          command: echo "Hello, world!" > artifact.txt
+          command: echo "Hello, world!" > artifacts/artifact.txt
       - store_artifacts:
           path: artifacts/
 
 workflows:
   version: 2
-
   btd:
     jobs:
       - build
