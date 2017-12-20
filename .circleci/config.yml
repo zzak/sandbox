@@ -12,3 +12,10 @@ jobs:
       command: echo "Hello, world!" > artifact.txt
     - store_artifacts:
       path: artifacts/
+
+workflows:
+  version: 2
+
+  btd:
+    jobs:
+      - build
