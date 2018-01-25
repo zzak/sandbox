@@ -1,4 +1,7 @@
 machine:
+  pre:
+    - sudo ln -s /opt/circleci /home/travis
+
   ruby:
     version: 2.5.0
 
