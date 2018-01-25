@@ -1,6 +1,6 @@
 machine:
   pre:
-    - rvm get head
+    - sudo rvm get head --auto-dotfiles
 
   ruby:
     version: 2.5.0
