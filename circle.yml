@@ -1,6 +1,6 @@
 machine:
   pre:
-    - sudo ln -s /opt/circleci /home/travis
+    - rvm get head
 
   ruby:
     version: 2.5.0
