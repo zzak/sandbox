@@ -1,0 +1,11 @@
+version: 2.0
+jobs:
+  build:
+    docker:
+      - image: golang:1.8
+    working_directory: /tmp
+    steps:
+      - load_orb:
+          id: sample
+          uri: https://circle-downloads.s3.amazonaws.com/playground/mytest.tar.gz
+      - sample/test_echo
