@@ -12,6 +12,10 @@ jobs:
           command: chruby
 
       - run:
+          name: Output RUBY_DESCRIPTION
+          command: ruby -v
+
+      - run:
           name: Report NAME_MAX var
           command: grep NAME_MAX /usr/include/sys/syslimits.h
 
