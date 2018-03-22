@@ -1,0 +1,9 @@
+version: 2
+jobs:
+  build:
+    environment:
+      MY_VAR: has some spaces
+    docker:
+      - image: circleci/ruby
+    steps:
+      - run: echo $MY_VAR
