@@ -33,3 +33,9 @@ jobs:
           echo $(circleci tests glob ".circleci/**/*")
           circleci tests glob ".circleci/**/*" | xargs -n 1 echo
       - run: circleci step halt
+workflows:
+  version: 2
+  workflow:
+    jobs:
+      - build
+      - use-machine
