@@ -11,3 +11,15 @@ jobs:
       - run: which circleci
       - run: circleci version
       - run: circleci step halt
+      - run: circleci-agent version
+  use-machine:
+    machine: true
+    steps:
+      - checkout
+      - run: |
+          curl https://raw.githubusercontent.com/CircleCI-Public/circleci-cli/master/install.sh \
+            --fail --show-error | sudo bash
+      - run: which circleci
+      - run: circleci version
+      - run: circleci step halt
+      - run: circleci-agent version
