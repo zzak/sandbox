@@ -10,3 +10,4 @@ jobs:
             --fail --show-error | sudo bash
       - run: which circleci
       - run: circleci version
+      - run: circleci step halt
