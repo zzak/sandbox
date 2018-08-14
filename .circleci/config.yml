@@ -1,0 +1,12 @@
+version: 2.1
+jobs:
+  build:
+    docker:
+      - image: ubuntu:18.04
+    steps:
+      - checkout
+      - run: |
+          curl https://raw.githubusercontent.com/CircleCI-Public/circleci-cli/master/install.sh \
+            --fail --show-error | sudo bash
+      - run: which circleci
+      - run: circleci version
