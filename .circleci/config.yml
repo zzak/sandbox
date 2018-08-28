@@ -1,13 +1,14 @@
 version: 2.1
+orbs:
+  cli: circleci/circleci-cli@dev:volatile
+
 jobs:
   build:
     docker:
       - image: circleci/buildpack-deps:latest
     steps:
       - checkout
-      - run: |
-          curl https://raw.githubusercontent.com/CircleCI-Public/circleci-cli/master/install.sh \
-            --fail --show-error | sudo bash
+      - cli/install
       - run: which circleci
       - run: circleci version
       - run: circleci-agent version
@@ -19,13 +20,22 @@ jobs:
           echo $(circleci-agent tests glob ".circleci/**/*")
           circleci-agent tests glob ".circleci/**/*" | xargs -n 1 echo
       - run: circleci step halt
+  use-image:
+    executor: cli/default
+    steps:
+      - checkout
+      - run: which circleci
+      - run: circleci version
+      - run: circleci-agent version
+      - run: |
+          echo $(circleci tests glob ".circleci/**/*")
+          circleci tests glob ".circleci/**/*" | xargs -n 1 echo
+      - run: circleci step halt
   use-machine:
     machine: true
     steps:
       - checkout
-      - run: |
-          curl https://raw.githubusercontent.com/CircleCI-Public/circleci-cli/master/install.sh \
-            --fail --show-error | sudo bash
+      - cli/install
       - run: which circleci
       - run: circleci version
       - run: circleci-agent version
@@ -38,4 +48,5 @@ workflows:
   workflow:
     jobs:
       - build
+      - use-image
       - use-machine
