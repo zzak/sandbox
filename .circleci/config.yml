@@ -21,7 +21,9 @@ jobs:
           circleci-agent tests glob ".circleci/**/*" | xargs -n 1 echo
       - run: circleci step halt
   use-image:
-    executor: cli/default
+    executor:
+      name: cli/default
+      tag: 0.1.1640
     steps:
       - checkout
       - run: which circleci
