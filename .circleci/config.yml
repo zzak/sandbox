@@ -8,6 +8,7 @@ jobs:
       - image: circleci/golang:latest
     environment:
       - USER: circleci
+      - TRAVIS: circleci
     steps:
       - run: |
           sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
