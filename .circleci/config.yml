@@ -13,7 +13,7 @@ jobs:
       - run: |
           sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
       - run: |
-          brew bump-formula-pr --dry-run \
+          $HOME/.linuxbrew/bin/brew bump-formula-pr --dry-run \
             --url=https://github.com/CircleCI-Public/circleci-cli.git \
             --tag=v1.0.0 \
             --revision=$CIRCLE_SHA \
