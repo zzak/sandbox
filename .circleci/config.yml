@@ -1,0 +1,23 @@
+version: 2.0
+orbs:
+  cli: circleci/circleci-cli@dev:volatile
+
+jobs:
+  build:
+    docker:
+      - image: circleci/golang:latest
+    steps:
+      - run: |
+          sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
+      - run: |
+          brew bump-formula-pr --dry-run \
+            --url=https://github.com/CircleCI-Public/circleci-cli.git \
+            --tag=v1.0.0 \
+            --revision=$CIRCLE_SHA \
+            circleci
+
+workflows:
+  version: 2
+  workflow:
+    jobs:
+      - build
