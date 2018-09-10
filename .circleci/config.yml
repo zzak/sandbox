@@ -6,6 +6,8 @@ jobs:
   build:
     docker:
       - image: circleci/golang:latest
+    environment:
+      - USER: circleci
     steps:
       - run: |
           sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
