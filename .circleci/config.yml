@@ -15,7 +15,7 @@ jobs:
       - run: |
           /home/linuxbrew/.linuxbrew/bin/brew bump-formula-pr --dry-run \
             --tag=v1.0.0 \
-            --revision=$CIRCLE_SHA \
+            --revision=$CIRCLE_SHA1 \
             circleci
 
 workflows:
