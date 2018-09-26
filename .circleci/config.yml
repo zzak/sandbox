@@ -1,0 +1,12 @@
+jobs:
+  build:
+    macos:
+      xcode: "10.0"
+    steps:
+      - checkout
+
+workflows:
+  version: 2
+  ci:
+    jobs:
+      - build
