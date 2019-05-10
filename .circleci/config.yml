@@ -3,6 +3,7 @@ jobs:
   build:
     docker:
     - image: circleci/ruby:2.4-node
+    parallelism: 3
     steps:
     - run:
         command: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
