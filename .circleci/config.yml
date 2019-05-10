@@ -2,76 +2,41 @@ version: 2
 jobs:
   build:
     docker:
-    - image: circleci/ruby:2.4-node
-    parallelism: 3
+    - image: debian:stretch
+    steps:
+    - checkout
+  hello/hello-build:
+    docker:
+    - image: bash:4.4.19
     steps:
     - run:
-        command: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
+        command: echo "Hello ${CIRCLE_USERNAME}"
     - run:
-        command: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
+        command: |-
+          echo "TRIGGERER: ${CIRCLE_USERNAME}"
+          echo "BUILD_NUMBER: ${CIRCLE_BUILD_NUM}"
+          echo "BUILD_URL: ${CIRCLE_BUILD_URL}"
+          echo "BRANCH: ${CIRCLE_BRANCH}"
+          echo "RUNNING JOB: ${CIRCLE_JOB}"
+          echo "JOB PARALLELISM: ${CIRCLE_NODE_TOTAL}"
+          echo "CIRCLE_REPOSITORY_URL: ${CIRCLE_REPOSITORY_URL}"
+        name: Show some of the CircleCI runtime env vars
     - run:
-        command: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
+        command: |-
+          echo "uname:" $(uname -a)
+          echo "arch: " $(uname -m)
+        name: Show system information
+  echo:
+    docker:
+    - image: debian:stretch
+    parallelism: 100
+    steps:
     - run:
-        command: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
-    - run:
-        command: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
-    - run:
-        command: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
-    - run:
-        command: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
-    - run:
-        command: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
-    - run:
-        command: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
-    - run:
-        command: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
-    - run:
-        command: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
-    - run:
-        command: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
-    - run:
-        command: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
-    - run:
-        command: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
-    - run:
-        command: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
-    - run:
-        command: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
-    - run:
-        command: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
-    - run:
-        command: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
-    - run:
-        command: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
-    - run:
-        command: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
-    - run:
-        command: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
-    - run:
-        command: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
-    - run:
-        command: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
-    - run:
-        command: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
-    - run:
-        command: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
-    - run:
-        command: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
-    - run:
-        command: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
-    - run:
-        command: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
-    - run:
-        command: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
-    - run:
-        command: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
-    - run:
-        command: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
-    - run:
-        command: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
+        command: echo hello
 workflows:
   version: 2
-  workflow:
+  build_and_hello:
     jobs:
     - build
-
+    - hello/hello-build
+    - echo
