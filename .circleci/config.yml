@@ -2,72 +2,120 @@ version: 2
 jobs:
   build:
     docker:
-    - image: circleci/ruby:2.4-node
+    - image=circleci/ruby:2.4-node
     steps:
     - run:
-        command: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
+        command: for i in {1..10}; do       sleep 2;        echo "ping ${i}"; done
     - run:
-        command: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
+        command: for i in {1..10}; do       sleep 2;        echo "ping ${i}"; done
     - run:
-        command: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
+        command: for i in {1..10}; do       sleep 2;        echo "ping ${i}"; done
     - run:
-        command: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
+        command: for i in {1..10}; do       sleep 2;        echo "ping ${i}"; done
     - run:
-        command: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
+        command: for i in {1..10}; do       sleep 2;        echo "ping ${i}"; done
     - run:
-        command: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
+        command: for i in {1..10}; do       sleep 2;        echo "ping ${i}"; done
     - run:
-        command: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
+        command: for i in {1..10}; do       sleep 2;        echo "ping ${i}"; done
     - run:
-        command: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
+        command: for i in {1..10}; do       sleep 2;        echo "ping ${i}"; done
     - run:
-        command: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
+        command: for i in {1..10}; do       sleep 2;        echo "ping ${i}"; done
     - run:
-        command: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
+        command: for i in {1..10}; do       sleep 2;        echo "ping ${i}"; done
     - run:
-        command: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
+        command: for i in {1..10}; do       sleep 2;        echo "ping ${i}"; done
     - run:
-        command: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
+        command: for i in {1..10}; do       sleep 2;        echo "ping ${i}"; done
     - run:
-        command: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
+        command: for i in {1..10}; do       sleep 2;        echo "ping ${i}"; done
     - run:
-        command: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
+        command: for i in {1..10}; do       sleep 2;        echo "ping ${i}"; done
     - run:
-        command: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
+        command: for i in {1..10}; do       sleep 2;        echo "ping ${i}"; done
     - run:
-        command: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
+        command: for i in {1..10}; do       sleep 2;        echo "ping ${i}"; done
     - run:
-        command: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
+        command: for i in {1..10}; do       sleep 2;        echo "ping ${i}"; done
     - run:
-        command: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
+        command: for i in {1..10}; do       sleep 2;        echo "ping ${i}"; done
     - run:
-        command: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
+        command: for i in {1..10}; do       sleep 2;        echo "ping ${i}"; done
     - run:
-        command: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
+        command: for i in {1..10}; do       sleep 2;        echo "ping ${i}"; done
     - run:
-        command: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
+        command: for i in {1..10}; do       sleep 2;        echo "ping ${i}"; done
     - run:
-        command: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
+        command: for i in {1..10}; do       sleep 2;        echo "ping ${i}"; done
     - run:
-        command: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
+        command: for i in {1..10}; do       sleep 2;        echo "ping ${i}"; done
     - run:
-        command: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
+        command: for i in {1..10}; do       sleep 2;        echo "ping ${i}"; done
     - run:
-        command: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
+        command: for i in {1..10}; do       sleep 2;        echo "ping ${i}"; done
     - run:
-        command: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
+        command: for i in {1..10}; do       sleep 2;        echo "ping ${i}"; done
     - run:
-        command: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
+        command: for i in {1..10}; do       sleep 2;        echo "ping ${i}"; done
     - run:
-        command: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
+        command: for i in {1..10}; do       sleep 2;        echo "ping ${i}"; done
     - run:
-        command: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
+        command: for i in {1..10}; do       sleep 2;        echo "ping ${i}"; done
     - run:
-        command: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
+        command: for i in {1..10}; do       sleep 2;        echo "ping ${i}"; done
     - run:
-        command: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
+        command: for i in {1..10}; do       sleep 2;        echo "ping ${i}"; done
     - run:
-        command: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
+        command: for i in {1..10}; do       sleep 2;        echo "ping ${i}"; done
+    - run:
+        command: for i in {1..10}; do       sleep 2;        echo "ping ${i}"; done
+    - run:
+        command: for i in {1..10}; do       sleep 2;        echo "ping ${i}"; done
+    - run:
+        command: for i in {1..10}; do       sleep 2;        echo "ping ${i}"; done
+    - run:
+        command: for i in {1..10}; do       sleep 2;        echo "ping ${i}"; done
+    - run:
+        command: for i in {1..10}; do       sleep 2;        echo "ping ${i}"; done
+    - run:
+        command: for i in {1..10}; do       sleep 2;        echo "ping ${i}"; done
+    - run:
+        command: for i in {1..10}; do       sleep 2;        echo "ping ${i}"; done
+    - run:
+        command: for i in {1..10}; do       sleep 2;        echo "ping ${i}"; done
+    - run:
+        command: for i in {1..10}; do       sleep 2;        echo "ping ${i}"; done
+    - run:
+        command: for i in {1..10}; do       sleep 2;        echo "ping ${i}"; done
+    - run:
+        command: for i in {1..10}; do       sleep 2;        echo "ping ${i}"; done
+    - run:
+        command: for i in {1..10}; do       sleep 2;        echo "ping ${i}"; done
+    - run:
+        command: for i in {1..10}; do       sleep 2;        echo "ping ${i}"; done
+    - run:
+        command: for i in {1..10}; do       sleep 2;        echo "ping ${i}"; done
+    - run:
+        command: for i in {1..10}; do       sleep 2;        echo "ping ${i}"; done
+    - run:
+        command: for i in {1..10}; do       sleep 2;        echo "ping ${i}"; done
+    - run:
+        command: for i in {1..10}; do       sleep 2;        echo "ping ${i}"; done
+    - run:
+        command: for i in {1..10}; do       sleep 2;        echo "ping ${i}"; done
+    - run:
+        command: for i in {1..10}; do       sleep 2;        echo "ping ${i}"; done
+    - run:
+        command: for i in {1..10}; do       sleep 2;        echo "ping ${i}"; done
+    - run:
+        command: for i in {1..10}; do       sleep 2;        echo "ping ${i}"; done
+    - run:
+        command: for i in {1..10}; do       sleep 2;        echo "ping ${i}"; done
+    - run:
+        command: for i in {1..10}; do       sleep 2;        echo "ping ${i}"; done
+    - run:
+        command: for i in {1..10}; do       sleep 2;        echo "ping ${i}"; done
 workflows:
   version: 2
   workflow:
