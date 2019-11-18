@@ -1,0 +1,47 @@
+version: 2.1
+
+jobs:
+  build:
+    docker:
+      - image: circleci/ruby:2.4-node
+
+    steps:
+      - run: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
+      - run: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
+      - run: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
+      - run: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
+      - run: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
+      - run: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
+      - run: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
+      - run: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
+      - run: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
+      - run: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
+      - run: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
+      - run: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
+      - run: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
+      - run: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
+      - run: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
+      - run: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
+      - run: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
+      - run: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
+      - run: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
+      - run: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
+      - run: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
+      - run: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
+      - run: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
+      - run: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
+      - run: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
+      - run: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
+      - run: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
+      - run: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
+      - run: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
+      - run: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
+      - run: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
+      - run: for i in {1..50}; do       sleep 5;        echo "ping ${i}"; done
+
+workflows:
+  version: 2
+  ci:
+    jobs:
+      - build:
+          type: approval
