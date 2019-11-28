@@ -45,4 +45,6 @@ workflows:
     jobs:
       - gate:
           type: approval
-      - build
+      - build:
+          requires:
+            - gate
