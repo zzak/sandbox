@@ -1,0 +1,22 @@
+version: 2
+
+jobs:
+
+  test-output:
+    docker:
+    - image: circleci/python:2.7-stretch
+    steps:
+    - checkout
+    - run: sleep 67
+    - run: echo "yo yo yo"
+    - run: echo "✅"
+  test-waiting:
+    docker:
+    - image: circleci/python:2.7-stretch
+    steps:
+    - checkout
+
+workflows:
+  version: 2
+  test:
+    jo-output
