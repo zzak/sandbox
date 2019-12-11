@@ -9,6 +9,7 @@ workflows:
       - sayhello:
           requires:
             - sayhello
+            - doesntexist
 
 jobs:
   sayhello:
