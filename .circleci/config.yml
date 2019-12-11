@@ -1,0 +1,18 @@
+version: 2.1
+
+workflows:
+  version: 2
+
+  hello-workflow:
+    jobs:
+      - sayhello
+      - sayhello:
+          requires:
+            - sayhello
+
+jobs:
+  sayhello:
+    docker:
+      - image: circleci/ruby:2.4-node
+    steps:
+      - checkout
